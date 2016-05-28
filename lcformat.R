@@ -2,6 +2,7 @@
 
 resultFile			<- 'examples/RXFK.txt'
 robotFile			<- 'robots.txt'
+outputFile			<- 'results.txt'
 
 results				<- read.table(resultFile,skip=1,fill=TRUE,sep='\t',header=TRUE)
 results				<- results[,c('Pos','Group')]
@@ -17,5 +18,6 @@ results$Plate		<- factor(results$Plate, levels = c(1,2,3,4))
 
 results				<- results[order(results$Plate,results$Well),]
 rownames(results)	<- NULL
+results				<- results[,c('Plate','Well','Group')]
 
-print(results)
+write.table(results,file=outputFile,row.names=FALSE,col.names=TRUE,quote=FALSE,sep='\t')
