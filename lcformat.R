@@ -21,3 +21,6 @@ rownames(results)	<- NULL
 results				<- results[,c('Plate','Well','Group')]
 
 write.table(results,file=outputFile,row.names=FALSE,col.names=TRUE,quote=FALSE,sep='\t')
+
+
+print('Change made by Mareike!')
